@@ -1,5 +1,5 @@
 apiVersion : V1
-Kind : Pod
+kind : Pod
 metadata:
   name : podconfig
   spec:
