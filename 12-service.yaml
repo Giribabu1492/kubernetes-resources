@@ -12,7 +12,8 @@ spec:
   - protocol: TCP
     port: 80
     targetPort: 80
-# default it will go into cluster ip wchich we can access from inside cluster only
+# default it will go into cluster ip wchich we can access from inside cluster only, 
+#load balancing, pod to pod communication, service discovery, exposing application to outside world using nodeport or loadbalancer type of service
 ---
 kind : Pod
 apiVersion: v1
