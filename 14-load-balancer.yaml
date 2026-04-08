@@ -1,30 +1,27 @@
+kind: Service
 apiVersion: v1
-kind : Service
 metadata:
-  name: nodeport-service
+  name: nginx-lb
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
       project : expense
       component: backend
       environment: dev
       version: "1.0.0"
       demo: np
-  ports:
+  ports: 
   - protocol: TCP
     port: 80
     targetPort: 80
     nodePort: 31152
 
-
 ---
-#attaching service to particular pod based on labels variables it will identify 
-#unique values of labels
-# node port we can access from inside our pod, it its not recomnded due to heave traffic get on single node
+# using LB load will distribute across nodes we can access from internet
 kind: Pod
 apiVersion: v1
 metadata: 
-  name: backend-np
+  name: backend-lb
   labels: 
       project : expense
       component: backend
@@ -33,7 +30,5 @@ metadata:
       demo: np
 spec:
   containers:
-    - name: nginx 
+    - name: nginx
       image: nginx
-
-
