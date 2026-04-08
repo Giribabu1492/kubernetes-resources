@@ -11,7 +11,7 @@ spec:
   ports: 
   - protocol: TCP
     port: 80
-    targetPort: 80
+    targetPort: 80   ### request forward to nginx contaier port 80
 # default it will go into cluster ip wchich we can access from inside cluster only, 
 #load balancing, pod to pod communication, service discovery, exposing application to outside world using nodeport or loadbalancer type of service
 ---

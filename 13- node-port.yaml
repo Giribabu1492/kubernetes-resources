@@ -1,0 +1,39 @@
+apiVersion: v1
+kind : Service
+metadata:
+  name: nodeport-service
+spec:
+  type: NodePort
+  selector:
+      project : expense
+      component: backend
+      environment: dev
+      version: "1.0.0"
+      demo: np
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 31152
+
+    
+---
+#attaching service to particular pod based on labels variables it will identify 
+#unique values of labels
+# node port we can access from inside our pod, it its not recomnded due to heave traffic get on single node
+kind: Pod
+apiVersion: v1
+metadata: 
+  name: backend-np
+  labels: 
+      project : expense
+      component: backend
+      environment: dev
+      version: "1.0.0"
+      demo: np
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+
+
