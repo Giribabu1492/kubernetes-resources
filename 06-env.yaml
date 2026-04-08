@@ -13,3 +13,5 @@ spec:
       value: "shiva"
     - name: Duration
       value: "120hrs"  
+####### container level env variables
+    
