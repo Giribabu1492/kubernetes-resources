@@ -1,9 +1,9 @@
-apiVersion : v1
-kind : Pod
-metadata:
-  name : env pod
+kind: Pod
+apiVersion: v1
+metadata: 
+  name: env
 spec:
-   containers:
+  containers:
   - name: nginx
     image: nginx
     env:
@@ -12,4 +12,4 @@ spec:
     - name: tainer
       value: "shiva"
     - name: Duration
-      value: "120hrs"
+      value: "120hrs"  
