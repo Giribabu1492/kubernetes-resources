@@ -1,0 +1,8 @@
+apiVersion : V1  
+Kind : ConfigMap           ## dynamically passing environment variable to pod using configmap for loos coupling between pod and configuration details
+metadata :
+ name : myconfig
+ data :
+  course : "Devops" 
+  duration : "30hrs"
+
