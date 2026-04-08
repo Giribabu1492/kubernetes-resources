@@ -1,0 +1,29 @@
+apiVersion: v1
+kind : Service  
+metadata:
+  name: my-service
+spec:
+  selector:
+      project : expense
+      component: backend
+      environment: dev
+      version: "1.0.0"
+  ports: 
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+# default it will go into cluster ip wchich we can access from inside cluster only
+---
+kind : Pod
+apiVersion: v1
+metadata: 
+  name: backend
+  labels: 
+      project : expense
+      component: backend
+      environment: dev
+      version: "1.0.0"
+spec:
+  containers:
+    - name: nginx
+      image: nginx
