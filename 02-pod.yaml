@@ -5,6 +5,6 @@ metadata:
   namespace: expense
 spec:
   containers:
-  - name: expense-nginx
+  - name: expense
     image: nginx
   
